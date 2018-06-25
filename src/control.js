@@ -64,13 +64,7 @@ export default class OptionGroup extends Component {
         _default: {
             margin: undefined,
             fontSize: undefined,
-            backgroundColor: 'transparent',
-            borderColor: '#828186',
-            borderWidth: 1,
-            borderRadius: 3,
-            contentPadding: 10,
-            inverseTextColor: '#FFFFFF',
-
+            fontFamily: undefined,
         },
 
         red: {

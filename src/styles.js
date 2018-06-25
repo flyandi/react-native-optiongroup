@@ -32,6 +32,7 @@ export default props => StyleSheet.create({
     buttonItemText: {
         textAlign: 'center',
         fontSize: props.fontSize,
+        fontFamily: props.fontFamily,
         color: props.borderColor,
     },
 
@@ -47,5 +48,6 @@ export default props => StyleSheet.create({
         color: props.inverseTextColor,
         textAlign: 'center',
         fontSize: props.fontSize,
+        fontFamily: props.fontFamily,
     }
 });
