@@ -17,8 +17,9 @@ export default props => StyleSheet.create({
         borderColor: props.borderColor,
         borderWidth: props.borderWidth,
         borderRadius: props.borderRadius,
-        overflow: 'hidden'
-
+        overflow: 'hidden',
+        backgroundColor: props.backgroundColor,
+        margin: props.margin,
     },
 
     buttonItem: {

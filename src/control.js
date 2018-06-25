@@ -17,16 +17,21 @@ export default class OptionGroup extends Component {
      * @type {}
      */
     static propTypes = {
+        backgroundColor: PropTypes.string,
         borderColor: PropTypes.string,
         borderWidth: PropTypes.number,
         borderRadius: PropTypes.number,
         contentPadding: PropTypes.number,
-        fontSize: PropTypes.number,
-        fontFamily: PropTypes.string,
         inverseTextColor: PropTypes.string,
-        options: PropTypes.object,
+        options: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
         selected: PropTypes.any,
-        defaultValue: PropTypes.any
+        defaultValue: PropTypes.any,
+        style: PropTypes.any,
+        useLabelValue: PropTypes.string,
+        useKeyValue: PropTypes.string,
+        onChange: PropTypes.func,
+        theme: PropTypes.string,
+        invertKeyLabel: PropTypes.bool,
     }
 
     /**
@@ -34,43 +39,79 @@ export default class OptionGroup extends Component {
      * @type {}
      */
     static defaultProps = {
+        backgroundColor: 'transparent',
         borderColor: '#828186',
         borderWidth: 1,
         borderRadius: 3,
         contentPadding: 10,
-        fontSize: undefined,
-        fontFamily: undefined,
         inverseTextColor: '#FFFFFF',
-        options: {},
         defaultValue: undefined,
         selected: undefined,
+        style: {},
+        useLabelValue: undefined,
+        useKeyValue: undefined,
+        onChange: undefined,
+        theme: undefined,
+        invertKeyLabel: false,
     }
 
+    /**
+     * Themes
+     * @type {}
+     */
+    static themes = {
+
+        _default: {
+            margin: undefined,
+            fontSize: undefined,
+            backgroundColor: 'transparent',
+            borderColor: '#828186',
+            borderWidth: 1,
+            borderRadius: 3,
+            contentPadding: 10,
+            inverseTextColor: '#FFFFFF',
+
+        },
+
+        red: {
+            borderColor: '#d9534f'
+        },
+
+        green: {
+            borderColor: '#5cb85c'
+        },
+
+        blue: {
+            borderColor: '#3F51B5'
+        },
+
+        yellow: {
+            borderColor: '#f0ad4e'
+        }
+
+    }
     /**
      * @constructor
      * @param props
      */
-    constructor(props) {
+    constructor(props)
+    {
         super(props);
 
         this.state = {
-            selected: null
+            selected: this.props.selected !== undefined ? this.props.selected : (this.props.defaultValue !== undefined ? this.props.defaultValue : undefined)
         };
     }
 
     /**
-     * @componentWillMount
-     */
-    componentWillMount() {
-
-    }
-
-    /**
-     * onValueChange Helper
+     * onValueChange
      * @param value
      */
-    onValueChange (value) {
-
+    onValueChange(value)
+    {
+        if(this.props.onChange) {
+            this.props.onChange(value)
+        }
         this.setState({
             selected : value
         });
@@ -80,18 +121,37 @@ export default class OptionGroup extends Component {
      * render
      * @returns {XML}
      */
-    render() {
-
+    render()
+    {
         let index = 0;
 
-        const styles = Styles(this.props);
+
+        const styles = Styles(_.extend(
+            {},
+            OptionGroup.themes._default,
+            this.props,
+            this.props.style ? this.props.style : {},
+            this.props.theme ? OptionGroup.themes[this.props.theme] : {}
+        ));
+
+        const isArray = _.isArray(this.props.options);
 
         return (
             <View style={styles.buttonContainer}>
 
-                {_.map(this.props.options, (value, label) => {
+                {_.map(this.props.options, (params, name) => {
 
                     index++;
+
+                    let value = this.props.useKeyValue ? params[this.props.useKeyValue ] : params;
+
+                    let label = this.props.useLabelValue ? params[this.props.useLabelValue] : name;
+
+                    if((isArray && !this.props.useKeyValue) || this.props.invertKeyLabel) {
+                        let v = value;
+                        value = label;
+                        label = v;
+                    }
 
                     return (
                         <TouchableOpacity
