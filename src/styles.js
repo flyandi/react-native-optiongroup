@@ -44,6 +44,8 @@ export default props => StyleSheet.create({
         padding: props.contentPadding,
         borderLeftWidth: props.borderWidth,
         borderColor: props.borderColor,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 
     selectedButtonItemText: {
