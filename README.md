@@ -1,9 +1,9 @@
-
-
-
 # react-native-optiongroup
 
 A simple option group control.
+
+![alt text](https://github.com/flyandi/react-native-optiongroup/raw/master/docs/default.png "react-native-optiongroup")
+
 
 ## Installation
 
