@@ -131,7 +131,7 @@ import OptionGroup from 'react-native-optiongroup';
 />
 ```
 
-A subset of standard styles are supported including `margin`, `fontSize`, `backgroundColor`, `borderColor`, `borderWidth`, `borderRadius`, `contentPadding` and `inverseTextColor`.
+A subset of standard styles are supported including `margin`, `fontSize`, `fontFamily`, `backgroundColor`, `borderColor`, `borderWidth`, `borderRadius`, `contentPadding` and `inverseTextColor`.
 
 
 **Theme Styles**
