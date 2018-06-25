@@ -34,9 +34,9 @@ yarn add react-native-optiongroup
 
 ## Events
 
-| Prop | Description
-|---|---|---|
-|**`onChange`**|Executed when another option value was selected|Required|
+| Prop | Description |
+|---|---|
+|**`onChange`**|Executed when another option value was selected|
 
 
 ## Examples
@@ -101,9 +101,11 @@ import OptionGroup from 'react-native-optiongroup';
     onChange={(value) => console.log(value, 'selected')}
     invertKeyLabel={true}
 />
-
+```
 
 **Attribute Styles**
+
+![alt text](https://github.com/flyandi/react-native-optiongroup/raw/master/docs/styled.png "react-native-optiongroup")
 
 ```es6
 <OptionGroup
@@ -119,6 +121,8 @@ import OptionGroup from 'react-native-optiongroup';
 
 **Standard Styles**
 
+![alt text](https://github.com/flyandi/react-native-optiongroup/raw/master/docs/large.png "react-native-optiongroup")
+
 ```es6
 <OptionGroup
 	style={{fontSize: 20, margin: 20}}
@@ -131,6 +135,9 @@ A subset of standard styles are supported including `margin`, `fontSize`, `backg
 
 
 **Theme Styles**
+
+![alt text](https://github.com/flyandi/react-native-optiongroup/raw/master/docs/themes.png "react-native-optiongroup")
+
 
 ```es6
 <OptionGroup
