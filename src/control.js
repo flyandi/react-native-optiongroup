@@ -32,6 +32,8 @@ export default class OptionGroup extends Component {
         onChange: PropTypes.func,
         theme: PropTypes.string,
         invertKeyLabel: PropTypes.bool,
+        fontFamily: PropTypes.string,
+        fontSize: PropTypes.number,
     }
 
     /**
@@ -53,6 +55,8 @@ export default class OptionGroup extends Component {
         onChange: undefined,
         theme: undefined,
         invertKeyLabel: false,
+        fontSize: undefined,
+        fontFamily: undefined,
     }
 
     /**

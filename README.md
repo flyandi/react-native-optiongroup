@@ -31,6 +31,8 @@ yarn add react-native-optiongroup
 |`string` **`useKeyValue`**|A string indicating which key should be used for the key in an array object.|`undefined`|
 |`string` **`theme`**|One of the following theme strings: `red`, `yellow`, `blue` or `green`|`undefined`|
 |`bool` **`invertKeyLabel`**|If true the label becomes the key and the key becomes the label|`false`|
+|`string` **`fontFamily`**|The font family|`undefined`|
+|`string` **`fontSize`**|The font size|`undefined`|
 
 ## Events
 
