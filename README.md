@@ -171,5 +171,7 @@ A subset of standard styles are supported including `margin`, `fontSize`, `fontF
 />
 ```
 
+Default Theme Id's are `light`, `dark`, `grey`, `red`, `yellow`, `blue` and `green`
+
 
 

@@ -71,6 +71,18 @@ export default class OptionGroup extends Component {
             fontFamily: undefined,
         },
 
+        light: {
+            borderColor: '#FFFFFF'
+        },
+
+        gray: {
+            borderColor: '#777777'
+        },
+
+        dark: {
+            borderColor: '#000000'
+        },
+
         red: {
             borderColor: '#d9534f'
         },
